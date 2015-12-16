@@ -1,0 +1,242 @@
+//lat, long
+{
+  "locations": [
+    {
+      "name": "Acadia National Park",
+      "pos": [44.454, -68.04902]
+    },
+    {
+      "name": "American Samoa",
+      "pos": [-14.25708, -170.68512]
+    },
+    {
+      "name": "Arches",
+      "pos": [38.77, -109.56462]
+    },
+    {    
+      "name": "Badlands",
+       "pos": [43.6504, -102.43392]
+    }, 
+    {    
+      "name": "Big Bend",
+      "pos": [29.81874, -103.06042]
+    }, 
+    {    
+      "name": "Biscayne",
+      "pos": [25.442, -80.26162]
+    }, 
+    {    
+      "name": "Black Canyon of the Gunnison",
+      "pos": [38.58491, -107.72792]
+    }, 
+    {    
+      "name": "Bryce Canyon",
+      "pos": [37.5548, -112.19632]
+    }, 
+    {    
+      "name": "Canyonlands",
+      "pos": [38.261, -109.88072] 
+    }, 
+    {    
+      "name": "Capitol Reef",
+      "pos": [38.27617, -111.23862]
+    },
+    {    
+      "name": "Carlsbad Caverns",
+      "pos": [32.1648, -104.40902]
+    },
+    {    
+      "name": "Cuyahoga Valley ",
+      "pos": [41.20906, -81.55677] 
+    },
+    {    
+      "name": "Channel Islands",
+      "pos": [34.0394, -119.74212]
+    },
+    {    
+      "name": "Crater Lake",
+      "pos": [42.943, -122.10872]
+    },  
+    {    
+      "name": "Congaree",
+      "pos": [33.78333, -80.78308]
+    },
+    {    
+      "name": "Death Valley",
+      "pos" :  [36.524, -117.09872] 
+    },
+    {    
+      "name": "Denali",
+      "pos": [63.54357, -149.98632]
+    },
+    
+    {    
+      "name": "Dry Tortugas",
+      "pos": [24.6384, -81.7859]
+    },
+    {    
+      "name": "Everglades",
+     "pos": [25.36, -80.79976]
+    },
+    { 
+      "name": "Gates of Arctic",
+      "pos": [67.78333, -153.29972]
+    },
+    {    
+      "name": "Glacier",
+      "pos": [48.692, -113.77572]
+    },
+    {    
+      "name": "Glacier Bay",
+      "pos": [58.41543, -135.75552] 
+    },
+    {    
+      "name": "Grand Canyon",
+      "pos": [36.05749, -112.13722]
+      },
+    {    
+      "name": "Grand Teton",
+      "pos": [43.7403, -110.78822]
+      },
+    {    
+      "name": "Great Basin",
+      "pos": [38.93873, -114.26082]
+    },
+    {    
+      "name": "Great Sand Dunes",
+      "pos": [37.7539, -105.54172]
+    },
+    {    
+      "name": "Great Smoky Mountains",
+      "pos": [35.72715, -83.16773]
+    },
+    {    
+      "name": "Guadalupe Mountains",
+      "pos": [31.916, -104.85962] 
+    },
+    {    
+      "name": "Haleakala",
+      "pos": [20.71062, -156.21002]
+    },
+    {    
+      "name": "Hawaii Volcanoes",
+      "pos": [19.39999, -155.29962]
+    },
+    {    
+      "name": "Hot Springs",
+      "pos": [34.52684, -92.95843]
+    },
+    {    
+      "name": "Isle Royale",
+      "pos": [47.9624, -88.89144]
+    },
+    {    
+      "name": " Joshua Tree",
+      "pos": [33.843, -115.82762]
+    },
+    {    
+      "name": "Katmai",
+      "pos": [58.58305, -154.88652]
+    },
+    {    
+      "name": "Kenai Fjords",
+      "pos": [59.91666, -149.64982]
+    },
+    {    
+      "name": "Kings Canyon",
+      "pos": [36.81199, -118.64062]
+    },
+    {    
+      "name": "Kobuk Valley",
+      "pos": [67.34408, -159.13662]
+    },
+    {    
+      "name": "Lake Clark",
+      "pos": [60.19943, -154.32362]
+    },
+    {  
+      "name": "Lassen Volcano",
+       "pos": [40.48297, -121.41452]
+    },
+    {    
+      "name": "Mamoth Cave",
+      "pos": [37.1841, -86.11403]
+    },
+    {    
+      "name": "Mesa Verde",
+      "pos" :  [37.3192, -108.50862]
+    },
+    {    
+      "name": "Mount Rainer",
+      "pos": [46.85, -121.74982]
+    },
+    {    
+      "name": "North Cascades",
+      "pos": [48.70643, -121.18952]
+    },
+    {    
+      "name": "Olympic",
+      "pos": [47.799, -123.52162]
+    },
+    {    
+      "name": "Petrified Forest",
+      "pos": [35.06274, -109.78332]
+    },
+    {    
+      "name": "Pinnacles",
+      "pos": [36.48693, -121.16662] 
+    },
+    {    
+      "name": "RedWood",
+      "pos": [41.4771, -123.94482]
+    },
+    {    
+      "name": "Rocky Mountain",
+      "pos": [40.414, -105.68962]
+    },
+    {    
+      "name": "Saguaro",
+      "pos": [32.2432, -111.13052]
+    },
+    {    
+      "name": "Sequoia",
+      "pos": [36.36444, -118.72242] 
+    },
+    {    
+      "name": "Shenandoah",
+      "pos": [38.72, -78.30072]
+    },
+    {    
+      "name": "Theodore Roosevelt",
+      "pos": [47.3352, -103.24872]
+    },
+    {    
+      "name": "Virgin Islands",
+      "pos": [18.33333, -64.73323]
+    },
+    {    
+      "name": "Voyageurs",
+      "pos": [48.0996, -93.01663]
+    },
+    {    
+      "name": "Wind Cave",
+      "pos": [ 43.5909, -103.43302]
+    },
+    {    
+      "name": "Wrangell - St Elias",
+      "pos": [61.24284, -143.21622]
+    },
+    {    
+      "name": "Yellowstone",
+      "pos": [44.79573, -110.61342]
+    },
+    {    
+      "name": "Yosemite",
+      "pos": [37.6379, -119.69432]
+    }, 
+    {    
+      "name": "Zion",
+      "pos": [37.22299, -112.68142]
+    }
+  ]
+}
