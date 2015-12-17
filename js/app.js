@@ -1,5 +1,6 @@
+var submit = document.forms[0];
 
-var submit = document.getElementsByClassName('submit')[0];
+//make function to create dropdown menu with location.json
 
 //how do you get JSON here?
 //function getLocation(longtitude, latitude){
@@ -9,19 +10,31 @@ var submit = document.getElementsByClassName('submit')[0];
 //}
 
 function getPictures(){
+  event.preventDefault();
   var xhr = new XMLHttpRequest();
- 
   xhr.onload = function() {
-    //https://api.flickr.com/services/rest/?method=flickr.places.findByLatLon&api_key=3479c4b4000550c5ec123d9b46258ff3&lat=58.58305&lon=-154.88652&format=json&nojsoncallback=1&auth_token=72157662337049611-4b38137d7606a8a4&api_sig=a24a439ca57d3a468aabb25db73f3107
-     console.log('I\'m ready!');
-  }
-  xhr.open('POST', '/', true);
-  xhr.send(console.log('hi'));
-}
+    if(xhr.status === 200) {
+      var result = document.getElementsByClassName('hero')[0];
+      var response = xhr.responseText;
+      var data = JSON.parse(response);
 
+      for(i = 0; i < data.length; i++){
+        var flickrFarm = data[i].farm;
+        var flickrId = data[i].id;
+        var flickrServer = data[i].server;
+        var flickrSecret = data[i].secret;
+        console.log('<img src="https://farm' + flickrFarm + '.staticflickr.com/' + flickrServer + '/' + flickrId + '_' + flickrSecret + '.jpg">');
+      }      
+    }
+  }
+  var input = document.getElementsByTagName('select')[0].value;
+
+  xhr.open('POST', '/', true);
+  xhr.send(input);
+}
 
 function runFunctions() {
   getPictures();
 }
 
-submit.addEventListener('click', runFunctions, false);
+submit.addEventListener('submit', runFunctions, false);
