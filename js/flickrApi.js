@@ -14,7 +14,6 @@ flickr.post('/', textParser, function(req,res) {
       //parse into string
       var flickrImages = JSON.parse(body);  
       var data = JSON.stringify(flickrImages.photos.photo);
-      console.log(data);
       res.send(data);
     }
   });
