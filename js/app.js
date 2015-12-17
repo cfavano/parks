@@ -8,7 +8,7 @@ var submit = document.forms[0];
   //var longtitude = '';
   //var latitude = '';
 //}
-
+//
 function getPictures(){
   event.preventDefault();
   var xhr = new XMLHttpRequest();
