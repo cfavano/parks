@@ -14,7 +14,6 @@ function getPictures(){
   var xhr = new XMLHttpRequest();
   xhr.onload = function() {
     if(xhr.status === 200) {
-      var result = document.getElementsByClassName('hero')[0];
       var response = xhr.responseText;
       var data = JSON.parse(response);
 
@@ -23,7 +22,12 @@ function getPictures(){
         var flickrId = data[i].id;
         var flickrServer = data[i].server;
         var flickrSecret = data[i].secret;
-        console.log('<img src="https://farm' + flickrFarm + '.staticflickr.com/' + flickrServer + '/' + flickrId + '_' + flickrSecret + '.jpg">');
+
+        var flickrImage = new Image();
+        flickrImage.src = 'https://farm' + flickrFarm + '.staticflickr.com/' + flickrServer + '/' + flickrId + '_' + flickrSecret + '.jpg';
+        flickrImage.alt = '';
+        var hero = document.getElementsByClassName('hero')[0];
+        hero.appendChild(flickrImage);
       }      
     }
   }
