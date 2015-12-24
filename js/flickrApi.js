@@ -4,11 +4,11 @@ var flickr = express.Router();
 var bodyParser = require('body-parser');
 var textParser = bodyParser.text();
 
-flickr.post('/', textParser, function(req,res) {
-//var keyword = req.body;
-  var latitude = 44.454;
-  var longtitude = -68.04902; 
-  request('https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=1d3cddfecb2b92af4908394508288a7c&lat='+ latitude +'&lon='+ longtitude +'&radius=20&format=json&nojsoncallback=1&auth_token=72157662403865471-2bc0838b9c68b4f5&api_sig=48d26697a8b1a592ca85555657520927', 
+flickr.post('/', function(req, res) {
+  var latitude = req.body.latitude;
+  var longtitude = req.body.longtitude;
+   
+  request('https://api.flickr.com/services/rest/?method=flickr.photos.search&name=value&api_key=8f90d29e95cfbf77ae0e4231141d4f88&radius=20&lat=' + latitude + '&lon='+ longtitude +' &format=json&nojsoncallback=1',
   function (error, response, body) {
     if (!error && response.statusCode == 200) {   
       var flickrImages = JSON.parse(body);  

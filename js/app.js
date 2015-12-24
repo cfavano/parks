@@ -1,52 +1,32 @@
-var submit = document.forms[0];
+var submit = document.getElementById('location');
+
 //make function to create dropdown menu with location.json
-/*
-submit.addEventListener('submit', function(){
-  var location = document.getElementsByTagName('select')[0].value;
-  //get JSON and compare value
-  var xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = function() {
-    if (xhr.status === 200) {
-      console.log('hi');
-    }  
-  }
-  xhr.open('GET', '../data/location.json', true);
-  xhr.send(null);
-}, false);
-*/
+//Create new object constructor
 
-//how do you get JSON here?
-function getLocation(longtitude, latitude){
-//if(longtitude && latitude match) {
-  //var longtitude = '';
-  //var latitude = '';
-}
+function getPictures(){  
+  event.preventDefault();
+  var index = document.getElementById('park');
+  var parkName = index.options[index.selectedIndex].text;
+  var location = document.getElementById('park').value;  
+  var latLong = location.split(',');
 
-function getPictures(){
   var xhr = new XMLHttpRequest();
+  xhr.open('POST', '/api/flickrImages', true);
+  xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+  xhr.send(JSON.stringify({'nationalPark': parkName, 'latitude': latLong[0], 'longtitude': latLong[1] }));
+
   xhr.onload = function() {
     if(xhr.status === 200) {
       var response = xhr.responseText;
       var data = JSON.parse(response);
       for(i = 0; i < data.length; i++){
-        var flickrFarm = data[i].farm;
-        var flickrId = data[i].id;
-        var flickrServer = data[i].server;
-        var flickrSecret = data[i].secret;
         var flickrImage = new Image();
-        flickrImage.src = 'https://farm' + flickrFarm + '.staticflickr.com/' + flickrServer + '/' + flickrId + '_' + flickrSecret + '.jpg';
+        flickrImage.src = 'https://farm' + data[i].farm + '.staticflickr.com/' + data[i].server + '/' + data[i].id + '_' + data[i].secret + '.jpg';
         var hero = document.getElementsByClassName('hero')[0];
         hero.appendChild(flickrImage);
       }      
     }
   }
-  xhr.open('POST', '/', true);
-  xhr.send(null);
 }
 
-function runFunctions() {
-  event.preventDefault();
-  getPictures();
-}
-
-submit.addEventListener('submit', runFunctions, false);
+submit.addEventListener('submit', getPictures, false);
