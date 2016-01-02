@@ -48,8 +48,54 @@ a:hover {
   font-weight: bold;
 }
 
+.jumbotron {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  z-index: 0;
+  height: 800px;
+  height: 100vh;
+  background: url('../images/banner.jpg');
+  background-size: cover;
+}
+
+.navigation-container {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  background: rgba(0,0,0,.75);
+}
+
+.navigation-container .logo {
+  margin-top: 17px;
+}
+
+.navigation-container #location .form-control {
+  width: auto;
+  margin: 15px 0;
+}
+
+.navigation-container #location .btn {
+  margin: 16px 0 0 5px;
+  padding: 6px 16px;
+  border-radius: 20px;
+}
+
 .fluid-container #hero {
   padding: 0;
+}
+
+.fluid-container #hero p {
+  margin: 0 auto;
+  padding: 15% 0 0;
+  max-width: 637px;
+  width:100%;
+  text-align: center;
+  font-size: 105px;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  text-shadow: 2px 2px 2px #000;
 }
 
 .fluid-container #hero .col-sm-3, 
@@ -63,4 +109,14 @@ a:hover {
 .fluid-container #hero .col-sm-6 .img-responsive {
   background-size: cover;
   background-position: center center;
+}
+
+@media (max-width: 688px) {
+  .navigation-container .col-xs-6 {
+    width:100%;
+    float:none;
+  }
+  .navigation-container .logo{
+    margin: 17px auto;
+  }
 }

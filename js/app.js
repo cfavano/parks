@@ -8,7 +8,7 @@ function createImage(columnNumber, flickrPath){
   imageContainer.appendChild(placeholder);
   var hero = document.getElementById('hero');
   hero.appendChild(imageContainer );
-  imageContainer.setAttribute('class', 'col-sm-' + columnNumber + ' col-xs-3');
+  imageContainer.setAttribute('class', 'col-sm-' + columnNumber + ' col-xs-4');
   placeholder.setAttribute('class', 'img-responsive'); 
   placeholder.style.backgroundImage  = "url('"+ flickrPath + "')";
 }
@@ -26,6 +26,8 @@ function getFlickr(){
 
   xhr.onload = function() {
     if(xhr.status === 200) {
+      document.getElementsByClassName('jumbotron')[0].style.background  = "none";
+      document.getElementsByClassName('jumbotron')[0].style.height  = "auto";
       var heroContainer = document.getElementById('hero');
       var firstChild = heroContainer.firstChild;
 
