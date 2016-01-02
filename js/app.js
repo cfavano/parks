@@ -7,7 +7,7 @@ function createImage(columnNumber, flickrPath){
   var imageContainer = document.createElement('div');
   imageContainer.appendChild(placeholder);
   var hero = document.getElementById('hero');
-  console.log(hero.appendChild(imageContainer));
+  hero.appendChild(imageContainer );
   imageContainer.setAttribute('class', 'col-sm-' + columnNumber + ' col-xs-3');
   placeholder.setAttribute('class', 'img-responsive'); 
   placeholder.style.backgroundImage  = "url('"+ flickrPath + "')";
@@ -39,12 +39,12 @@ function getFlickr(){
       var data = responseText.photos.photo;
 
       if (data.length >= 36) {
-        for(i = 0; i < 12; i++){
-          var flickrImage = 'https://farm' + data[i*3].farm + '.staticflickr.com/' + data[i*3].server + '/' + data[i*3].id + '_' + data[i*3].secret + '_c.jpg';             
+        for(i = 0; i < 12; i++) {
+          var flickrImage  = 'https://farm' + data[i*3].farm + '.staticflickr.com/' + data[i*3].server + '/' + data[i*3].id + '_' + data[i*3].secret + '_c.jpg';         
           createImage(3, flickrImage);
         }
       }
-  
+
       else {
         var flickrBroad = new XMLHttpRequest(); 
         flickrBroad.open('POST', '/api/flickrImagesBroad', true);
@@ -56,24 +56,28 @@ function getFlickr(){
             var responseFlickr = flickrBroad.responseText;
             var flickrText = JSON.parse(responseFlickr);
             var data = flickrText.photos.photo;
-            
             if (data.length >= 24) {
               for(j = 0; j < 12; j++) {             
                 var flickrImage  = 'https://farm' + data[j*2].farm + '.staticflickr.com/' + data[j*2].server + '/' + data[j*2].id + '_' + data[j*2].secret + '_c.jpg';       
                 createImage(3, flickrImage);
               }
-            }
-       
-            else if (data.length === 9){
-              for(j = 1; j < 9; j++) {
+            }   
+            else if (data.length === 12){
+              for(j = 0; j < 12; j++) {
                 var flickrImage  = 'https://farm' + data[j].farm + '.staticflickr.com/' + data[j].server + '/' + data[j].id + '_' + data[j].secret + '_c.jpg';         
                 createImage(3, flickrImage);
               }
             }
-            else if (data.length === 2){
-              for(j = 0; j < 2; j++) {
+            else if (data.length <= 11 && data.length >= 6){
+              for(j = 0; j < 6; j++) {
                 var flickrImage  = 'https://farm' + data[j].farm + '.staticflickr.com/' + data[j].server + '/' + data[j].id + '_' + data[j].secret + '_c.jpg';         
-                createImage(6, flickrImage);
+                createImage(4, flickrImage);
+              }
+            }
+            else {
+              for(j = 0; j < data.length; j++) {
+                var flickrImage  = 'https://farm' + data[j].farm + '.staticflickr.com/' + data[j].server + '/' + data[j].id + '_' + data[j].secret + '_c.jpg';         
+                createImage((12/data.length), flickrImage);
               }
             }
           }
