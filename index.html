@@ -15,79 +15,93 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   </head>
   <body>
+    <div class="fluid-container">
+      <div class="col-sm-4 col-sm-offset-4">
+        <form id="location">
+          <select class="form-control" name="NationalPark" id="park">
+            <option value="44.454,-68.04902">Acadia National Park</option>
+            <option value="-14.25708,-170.68512">American Samoa</option>
+            <option value="38.77,-109.56462">Arches</option>
+            <option value="43.6504,-102.43392">Badlands</option>
+            <option value="29.81874,-103.06042">Big Bend</option>
+            <option value="25.442,-80.26162">Biscayne</option>
+            <option value="38.58491,-107.72792">Black Canyon of the Gunnison</option>
+            <option value="37.5548,-112.19632">Bryce Canyon</option>
+            <option value="38.261,-109.88072">Canyonlands</option>
+            <option value="38.27617,-111.23862">Capitol Reef</option>
+            <option value="32.1648,-104.40902">Carlsbad Caverns</option>
+            <option value="41.20906,-81.55677">Cuyahoga Valley</option>
+            <option value="34.0394,-119.74212">Channel Islands</option>
+            <option value="42.943,-122.10872">Crater Lake</option>
+            <option value="33.78333,-80.78308">Congaree</option>
+            <option value="36.524,-117.09872">Death Valley</option>
+            <option value="63.54357,-149.98632">Denali</option>
+            <option value="24.6384,-81.7859">Dry Tortugas</option>
+            <option value="25.36,-80.79976">Everglades</option>
+            <option value="67.78333,-153.29972">Gates of Arctic</option>
+            <option value="48.692,-113.77572">Glacier</option>
+            <option value="58.41543,-135.75552">Glacier Bay</option>
+            <option value="36.05749,-112.13722">Grand Canyon</option>
+            <option value="43.7403,-110.78822">Grand Teton</option>
+            <option value="38.93873,-114.26082">Great Basin</option>
+            <option value="37.7539,-105.54172">Great Sand Dunes</option>
+            <option value="35.72715,-83.16773">Great Smoky Mountains</option>
+            <option value="31.916,-104.85962">Guadalupe Mountains</option>
+            <option value="20.71062,-156.21002">Haleakala</option>
+            <option value="19.39999,-155.29962">Hawaii Volcanoes</option>
+            <option value="34.52684,-92.95843">Hot Springs</option>
+            <option value="47.9624,-88.89144">Isle Royale</option>
+            <option value="33.843,-115.82762">Joshua Tree</option>
+            <option value="58.58305,-154.8865">Katmai</option>
+            <option value="59.91666,-149.64982">Kenai Fjords</option>
+            <option value="36.81199,-118.64062">Kings Canyon</option>
+            <option value="67.34408,-159.13662">Kobuk Valley</option>
+            <option value="60.19943,-154.32362">Lake Clark</option>
+            <option value="40.48297,-121.41452">Lassen Volcano</option>
+            <option value="37.1841,-86.11403">Mammdoth Cave</option>
+            <option value="37.3192,-108.50862">Mesa Verde</option>
+            <option value="46.85,-121.74982">Mount Rainer</option>
+            <option value="48.70643,-121.18952">North Cascades</option>
+            <option value="47.799,-123.52162">Olympic</option>
+            <option value="35.06274,-109.78332">Petrified Forest</option>
+            <option value="36.48693,-121.16662">Pinnacles</option>
+            <option value="41.4771,-123.94482">RedWood</option>
+            <option value="40.414,-105.68962">Rocky Mountain</option>
+            <option value="32.2432,-111.13052">Saguaro</option>
+            <option value="36.36444,-118.72242">Sequoia</option>
+            <option value="38.72,-78.30072">Shenandoah</option>
+            <option value="47.3352,-103.24872">Theodore Roosevelt</option>
+            <option value="18.33333,-64.73323">Virgin Islands</option>
+            <option value="48.0996,-93.01663">Voyageurs</option>
+            <option value="43.5909,-103.43302">Wind Cave</option>
+            <option value="61.24284,-143.21622">Wrangell - St Elias</option>
+            <option value="44.79573,-110.6134">Yellowstone</option>
+            <option value="37.6379,-119.69432">Yosemite</option>
+            <option value="37.22299,-112.68142">Zion</option>
+          </select>
+          <button type="submit" class="btn btn-success submit">Go</button>
+        </form>
+      </div>
+      <div class="hero col-sm-12"></div> 
+    </div>
     <div class="container">
-      <div class="row">
-        <div class="col-sm-4 col-sm-offset-4">
-          <form id="location">
-            <select class="form-control" name="NationalPark" id="park">
-              <option value="44.454,-68.04902">Acadia National Park</option>
-              <option value="-14.25708,-170.68512">American Samoa</option>
-              <option value="38.77,-109.56462">Arches</option>
-              <option value="43.6504,-102.43392">Badlands</option>
-              <option value="29.81874,-103.06042">Big Bend</option>
-              <option value="25.442,-80.26162">Biscayne</option>
-              <option value="38.58491,-107.72792">Black Canyon of the Gunnison</option>
-              <option value="37.5548,-112.19632">Bryce Canyon</option>
-              <option value="38.261,-109.88072">Canyonlands</option>
-              <option value="38.27617,-111.23862">Capitol Reef</option>
-              <option value="32.1648,-104.40902">Carlsbad Caverns</option>
-              <option value="41.20906,-81.55677">Cuyahoga Valley</option>
-              <option value="34.0394,-119.74212">Channel Islands</option>
-              <option value="42.943,-122.10872">Crater Lake</option>
-              <option value="33.78333,-80.78308">Congaree</option>
-              <option value="36.524,-117.09872">Death Valley</option>
-              <option value="63.54357,-149.98632">Denali</option>
-              <option value="24.6384,-81.7859">Dry Tortugas</option>
-              <option value="25.36,-80.79976">Everglades</option>
-              <option value="67.78333,-153.29972">Gates of Arctic</option>
-              <option value="48.692,-113.77572">Glacier</option>
-              <option value="58.41543,-135.75552">Glacier Bay</option>
-              <option value="36.05749,-112.13722">Grand Canyon</option>
-              <option value="43.7403,-110.78822">Grand Teton</option>
-              <option value="38.93873,-114.26082">Great Basin</option>
-              <option value="37.7539,-105.54172">Great Sand Dunes</option>
-              <option value="35.72715,-83.16773">Great Smoky Mountains</option>
-              <option value="31.916,-104.85962">Guadalupe Mountains</option>
-              <option value="20.71062,-156.21002">Haleakala</option>
-              <option value="19.39999,-155.29962">Hawaii Volcanoes</option>
-              <option value="34.52684,-92.95843">Hot Springs</option>
-              <option value="47.9624,-88.89144">Isle Royale</option>
-              <option value="33.843,-115.82762">Joshua Tree</option>
-              <option value="58.58305,-154.8865">Katmai</option>
-              <option value="59.91666,-149.64982]">Kenai Fjords</option>
-              <option value="36.81199,-118.64062">Kings Canyon</option>
-              <option value="67.34408,-159.13662">Kobuk Valley</option>
-              <option value="60.19943,-154.32362">Lake Clark</option>
-              <option value="40.48297,-121.41452">Lassen Volcano</option>
-              <option value="37.1841,-86.11403">Mammdoth Cave</option>
-              <option value="37.3192,-108.50862">Mesa Verde</option>
-              <option value="46.85,-121.74982">Mount Rainer</option>
-              <option value="48.70643,-121.18952">North Cascades</option>
-              <option value="47.799,-123.52162">Olympic</option>
-              <option value="35.06274,-109.78332">Petrified Forest</option>
-              <option value="36.48693,-121.16662">Pinnacles</option>
-              <option value="41.4771,-123.94482">RedWood</option>
-              <option value="40.414,-105.68962">Rocky Mountain</option>
-              <option value="32.2432,-111.13052">Saguaro</option>
-              <option value="36.36444,-118.72242">Sequoia</option>
-              <option value="38.72,-78.30072">Shenandoah</option>
-              <option value="47.3352,-103.24872">Theodore Roosevelt</option>
-              <option value="18.33333,-64.73323">Virgin Islands</option>
-              <option value="48.0996,-93.01663">Voyageurs</option>
-              <option value="43.5909,-103.43302">Wind Cave</option>
-              <option value="61.24284,-143.21622">Wrangell - St Elias</option>
-              <option value="44.79573,-110.6134">Yellowstone</option>
-              <option value="37.6379,-119.69432">Yosemite</option>
-              <option value="37.22299,-112.68142">Zion</option>
-            </select>
-            <button type="submit" class="btn btn-success submit">Go</button>
-          </form>
-          <div class="picker container">
-          </div>
-        </div> 
-      </div>
-      <div class="hero">
-      </div>
+      <div class="col-sm-8" id="park-info">
+        <div class="overview hide">
+            <h1>Overview</h1>
+        </div>
+        <div class="naturalFeatures hide">
+            <h2>Natural Features</h2>
+        </div>
+        <div class="recreation hide">
+            <h2>Recreation</h2>
+        </div>
+        <div class="facilities hide">
+            <h2>Facilities</h2>
+        </div>
+        <div class="nearby hide">
+            <h2>Nearby Attractions</h2>
+        </div>
+      </div> 
     </div>
     <script src="/js/app.js"></script>
   </body>

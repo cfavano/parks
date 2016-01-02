@@ -1,22 +1,15 @@
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: Arial, sans-serif;
 }
-h1, 
-h2,
+h1, .h1,
+h2, .h2,
 h3, .h3,
 h4, .h4,
 h5, .h4,
 h6, .h6 {
   font-weight:bold;
-}
-
-h1 {
-  font-size: 30px;
-}
-
-h2 {
-  font-size: 26px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .font-showcase {
@@ -24,18 +17,6 @@ h2 {
 }
 .font-showcase span {
   font-weight: bold;
-}
-
-.col-md-2 {
-  padding: 0;
-}
-.color-block {
-  margin-top: 35px;
-  padding-left: 15px;
-}
-.color-container {
-  height: 75px;
-  width: 100%;
 }
 
 .color1 {
@@ -65,4 +46,21 @@ a:hover {
 
 .strong {
   font-weight: bold;
+}
+
+.fluid-container .hero {
+  padding: 0;
+}
+
+.fluid-container .hero .col-sm-3, 
+.fluid-container .hero .col-sm-4,
+.fluid-container .hero .col-sm-6 {
+  padding: 0;
+}
+
+.fluid-container .hero .col-sm-3 .img-responsive,
+.fluid-container .hero .col-sm-4 .img-responsive,
+.fluid-container .hero .col-sm-6 .img-responsive {
+  background-size: cover;
+  background-position: center center;
 }
