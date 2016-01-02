@@ -48,19 +48,19 @@ a:hover {
   font-weight: bold;
 }
 
-.fluid-container .hero {
+.fluid-container #hero {
   padding: 0;
 }
 
-.fluid-container .hero .col-sm-3, 
-.fluid-container .hero .col-sm-4,
-.fluid-container .hero .col-sm-6 {
+.fluid-container #hero .col-sm-3, 
+.fluid-container #hero .col-sm-4,
+.fluid-container #hero .col-sm-6 {
   padding: 0;
 }
 
-.fluid-container .hero .col-sm-3 .img-responsive,
-.fluid-container .hero .col-sm-4 .img-responsive,
-.fluid-container .hero .col-sm-6 .img-responsive {
+.fluid-container #hero .col-sm-3 .img-responsive,
+.fluid-container #hero .col-sm-4 .img-responsive,
+.fluid-container #hero .col-sm-6 .img-responsive {
   background-size: cover;
   background-position: center center;
 }
