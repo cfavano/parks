@@ -1,4 +1,6 @@
 var submit = document.getElementById('location');
+var index = document.getElementById('park');
+var parkName = index.options[index.selectedIndex].text;
 
 function createImage(columnNumber, flickrPath){
   var hero = document.getElementById('hero');
@@ -13,9 +15,7 @@ function createImage(columnNumber, flickrPath){
   placeholder.style.backgroundImage  = "url('"+ flickrPath + "')";
 }
 
-function getFlickr(){  
-  var index = document.getElementById('park');
-  var parkName = index.options[index.selectedIndex].text;
+function getFlickr(){   
   var location = document.getElementById('park').value;  
   var latLong = location.split(',');
 
@@ -28,7 +28,7 @@ function getFlickr(){
     if(xhr.status === 200) {
       document.getElementsByClassName('jumbotron')[0].style.background  = "none";
       document.getElementsByClassName('jumbotron')[0].style.height  = "auto";
-      document.getElementById('footer').setAttribute('class', 'footer-wrap container show');
+      document.getElementById('footer').setAttribute('class', 'footer-wrap fluid-container show');
 
       var heroContainer = document.getElementById('hero');
       var firstChild = heroContainer.firstChild;
@@ -92,9 +92,7 @@ function getFlickr(){
 }
 
 function getRecreation(){ 
-  var index = document.getElementById('park');
-  var parkName = index.options[index.selectedIndex].text;
-  
+  document.getElementById('content').setAttribute('class', 'container show');
   var xhr = new XMLHttpRequest();
   xhr.open('GET', '/api/facilityData/getFacilityByName?parkName=' + parkName, true);
   xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
@@ -136,7 +134,6 @@ function getRecreation(){
 }
 
 function getWeather(){
-  var index = document.getElementById('park');
   var location = document.getElementById('park').value;  
   var latLong = location.split(',');
   var latitude = latLong[0];
@@ -147,10 +144,9 @@ function getWeather(){
   xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
   xhr.send();
 
-
   xhr.onload = function() {
     if(xhr.status === 200) {
-      document.getElementById('weather').setAttribute('class', 'col-sm-4 show');
+      document.getElementById('weather').setAttribute('class', 'col-sm-3 show');
 
       var weatherContainer = document.getElementById('weather-pod');
       var firstChild = weatherContainer.firstChild;
@@ -169,7 +165,7 @@ function getWeather(){
         var highPar = document.createElement('p');
         var lowPar = document.createElement('p');
         var highTemp = document.createTextNode('High: ' + data[i].high.fahrenheit + '\xB0F');
-        var lowTemp = document.createTextNode(' Low: ' + data[i].low.fahrenheit + '\xB0F');
+        var lowTemp = document.createTextNode('Low: ' + data[i].low.fahrenheit + '\xB0F');
 
         var dayPar = document.createElement('p');
         var dayText = document.createTextNode(data[i].date.weekday + ': ' + data[i].conditions);
@@ -186,15 +182,42 @@ function getWeather(){
         lowPar.appendChild(lowTemp);
         weather.appendChild(highPar);
         weather.appendChild(lowPar);
+
+        highPar.setAttribute('class', 'temp high');
+        lowPar.setAttribute('class', 'temp low');
       }
     }
   }
 }
+
+function initialize() {
+  var location = document.getElementById('park').value;  
+  var latLong = location.split(',');
+  var latitude = parseFloat(latLong[0]).toFixed(5);
+  var longtitude = parseFloat(latLong[1]).toFixed(5);
+
+  var mapCanvas = document.getElementById('map');
+  var mapOptions = {
+    center: new google.maps.LatLng(latitude, longtitude),
+    zoom: 5,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+
+  var map = new google.maps.Map(mapCanvas, mapOptions);
+  var marker = new google.maps.Marker({
+    position: new google.maps.LatLng(latitude, longtitude),
+    title: parkName
+  });
+  marker.setMap(map);
+}
+      
 function getInfo(){  
   event.preventDefault();
   getFlickr();
   getRecreation();
   getWeather();
+  document.getElementById('map-container').setAttribute('class', 'show');
+  initialize();
 }
 
 submit.addEventListener('submit', getInfo, false);
