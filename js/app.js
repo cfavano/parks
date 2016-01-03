@@ -150,12 +150,22 @@ function getWeather(){
 
   xhr.onload = function() {
     if(xhr.status === 200) {
+      document.getElementById('weather').setAttribute('class', 'col-sm-4 show');
+
+      var weatherContainer = document.getElementById('weather-pod');
+      var firstChild = weatherContainer.firstChild;
+
+      while(firstChild){
+        weatherContainer.removeChild(firstChild);
+        var firstChild = weatherContainer.firstChild;
+      }
+
       var response = xhr.responseText;
       var responseText = JSON.parse(response);
       var data = responseText.simpleforecast.forecastday;
  
       for(i = 0; i < data.length; i++){
-        var weather = document.getElementById('weather');
+        var weather = document.getElementById('weather-pod');
         var highPar = document.createElement('p');
         var lowPar = document.createElement('p');
         var highTemp = document.createTextNode('High: ' + data[i].high.fahrenheit + '\xB0F');
@@ -167,7 +177,6 @@ function getWeather(){
         weather.appendChild(dayPar); 
 
         var weatherImg = document.createElement('img');
-        console.log(data[0].icon_url);
         weatherImg.src= data[i].icon_url; 
         var iconWeather = document.createElement('div');
         iconWeather.appendChild(weatherImg);
