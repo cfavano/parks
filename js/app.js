@@ -28,6 +28,8 @@ function getFlickr(){
     if(xhr.status === 200) {
       document.getElementsByClassName('jumbotron')[0].style.background  = "none";
       document.getElementsByClassName('jumbotron')[0].style.height  = "auto";
+      document.getElementById('footer').setAttribute('class', 'footer-wrap container show');
+
       var heroContainer = document.getElementById('hero');
       var firstChild = heroContainer.firstChild;
 
@@ -133,10 +135,57 @@ function getRecreation(){
   }
 }
 
+function getWeather(){
+  var index = document.getElementById('park');
+  var location = document.getElementById('park').value;  
+  var latLong = location.split(',');
+  var latitude = latLong[0];
+  var longtitude = latLong[1];
+ 
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', '/api/weatherCity/getCity?latitude=' + latitude +'&longtitude=' + longtitude, true);
+  xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+  xhr.send();
+
+
+  xhr.onload = function() {
+    if(xhr.status === 200) {
+      var response = xhr.responseText;
+      var responseText = JSON.parse(response);
+      var data = responseText.simpleforecast.forecastday;
+ 
+      for(i = 0; i < data.length; i++){
+        var weather = document.getElementById('weather');
+        var highPar = document.createElement('p');
+        var lowPar = document.createElement('p');
+        var highTemp = document.createTextNode('High: ' + data[i].high.fahrenheit + '\xB0F');
+        var lowTemp = document.createTextNode(' Low: ' + data[i].low.fahrenheit + '\xB0F');
+
+        var dayPar = document.createElement('p');
+        var dayText = document.createTextNode(data[i].date.weekday + ': ' + data[i].conditions);
+        dayPar.appendChild(dayText);
+        weather.appendChild(dayPar); 
+
+        var weatherImg = document.createElement('img');
+        console.log(data[0].icon_url);
+        weatherImg.src= data[i].icon_url; 
+        var iconWeather = document.createElement('div');
+        iconWeather.appendChild(weatherImg);
+        weather.appendChild(weatherImg);
+
+        highPar.appendChild(highTemp);
+        lowPar.appendChild(lowTemp);
+        weather.appendChild(highPar);
+        weather.appendChild(lowPar);
+      }
+    }
+  }
+}
 function getInfo(){  
   event.preventDefault();
   getFlickr();
   getRecreation();
+  getWeather();
 }
 
 submit.addEventListener('submit', getInfo, false);

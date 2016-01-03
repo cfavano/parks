@@ -5,6 +5,7 @@ var flickr = require('./js/flickrApi.js');
 var recInfo = require('./js/recInfo.js')
 var facilityDataRouter = require('./js/facilityData.js');
 var flickrImagesBroad = require('./js/flickrImagesBroad.js');
+var weatherCity = require('./js/weatherCity.js');
 var bodyParser = require('body-parser');
 var api = express.Router();
 
@@ -25,6 +26,7 @@ api.use('/flickrImages', flickr);
 api.use('/recInfo', recInfo);
 api.use('/facilityData', facilityDataRouter);
 
+api.use('/weatherCity', weatherCity);
 
 app.listen(1337);
 console.log('Port 1337 is ready!');
