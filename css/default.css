@@ -117,14 +117,19 @@ a:hover {
 
 .fluid-container #hero p {
   margin: 0 auto;
-  padding: 15% 0 0;
+ 
   max-width: 637px;
   width:100%;
   text-align: center;
-  font-size: 105px;
+  font-size: 80px;
   color: #fff;
   font-family: 'Montserrat', sans-serif;
   text-shadow: 2px 2px 2px #000;
+}
+
+.fluid-container #hero p.small-header {
+  padding: 15% 0 0;
+  font-size: 40px;
 }
 
 .fluid-container #hero .col-sm-3, 

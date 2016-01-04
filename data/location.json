@@ -108,7 +108,7 @@
       ]
     },
     {    
-      "name": "Cuyahoga Valley ",
+      "name": "Cuyahoga Valley",
       "pos": [41.20906, -81.55677],
       "state": "Ohio",
       "RecAreaFacility":[
@@ -133,7 +133,7 @@
       "pos": [42.943, -122.10872],
       "state": "Oregon",
       "RecAreaFacility":[
-        {"RecAreaID":2647, "FacilityID": ""}
+        {"RecAreaID":2647, "FacilityID":""}
       ]
     },  
     {    
@@ -141,7 +141,7 @@
       "pos": [33.78333, -80.78308],
       "state": "South Carolina",
       "RecAreaFacility":[
-        {"RecAreaID":2644, "FacilityID": ""}
+        {"RecAreaID":2644, "FacilityID":""}
       ]
     },
     {    
@@ -164,7 +164,7 @@
       "name": "Denali",
       "pos": [63.54357, -149.98632],
       "state": "Alaska",
-      "recAreaFacility": [
+      "RecAreaFacility": [
         {"RecAreaID":2658, "FacilityID":233304},
         {"RecAreaID":2658, "FacilityID":246825},
         {"RecAreaID":2658, "FacilityID":247546}
@@ -176,7 +176,7 @@
       "pos": [24.6384, -81.7859],
       "state": "Florida",
       "RecAreaFacility":[
-        {"RecAreaID":2665, "FacilityID":247546}
+        {"RecAreaID":2665, "FacilityID":""}
       ]
     },
     {    
@@ -218,7 +218,7 @@
       "name": "Glacier Bay",
       "pos": [58.41543, -135.75552],
       "state": "Alaska",
-      "recAreaFacility": [
+      "RecAreaFacility": [
         {
           "RecAreaID": 2726,
           "FacilityID": 246829
@@ -337,7 +337,7 @@
       "pos": [47.9624, -88.89144],
       "state": "",
       "RecAreaFacility":[
-       {"RecAreaID":2769,"FacilityID":"" }
+       {"RecAreaID":2769,"FacilityID":""}
       ]
     },
     {    
@@ -370,7 +370,7 @@
       ]
     },
     {    
-      "name": "Kings Canyon & Sequioa",
+      "name": "Kings Canyon",
       "pos": [36.81199, -118.64062],
       "state": "California",
       "RecAreaFacility":[
@@ -401,7 +401,7 @@
       "pos": [67.34408, -159.13662],
       "state": "Alaska",
       "RecAreaFacility": [
-        {"RecAreaID":2795,"FacilityID": ""} 
+        {"RecAreaID":2795,"FacilityID":""} 
       ]
     },
     {    
@@ -409,7 +409,7 @@
       "pos": [60.19943, -154.32362],
       "state": "Alaska",
       "RecAreaFacility": [
-        {"RecAreaID":2799,"FacilityID": ""} 
+        {"RecAreaID":2799,"FacilityID":""} 
       ]
     },
     {  
@@ -511,7 +511,7 @@
       ]
     },
     {    
-      "name": "RedWood",
+      "name": "Redwood",
       "pos": [41.4771, -123.94482],
       "state": "California",
       "RecAreaFacility":[
@@ -539,7 +539,7 @@
       ]
     },
     {    
-      "name": "Sequoia & Kings Canyon",
+      "name": "Sequoia",
       "pos": [36.36444, -118.72242],
       "state": "California",
       "RecAreaFacility":[
@@ -624,8 +624,8 @@
       "name": "Wrangell - St Elias",
       "pos": [61.24284, -143.21622],
       "state": "Alaska",
-      "recAreaFacility": [
-        {"RecAreaID":2986,"FacilityID": ""} 
+      "RecAreaFacility": [
+        {"RecAreaID":2986,"FacilityID":""} 
       ]
     },
     {    
