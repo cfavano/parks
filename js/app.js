@@ -1,18 +1,40 @@
 var submit = document.getElementById('location');
 var index = document.getElementById('park');
 
-function createImage(columnNumber, flickrPath){
+function appendElement(parent, newElement, newText) {
+  var parentDiv = document.getElementById(parent);
+  var createdElement = document.createElement(newElement);
+  var text = document.createTextNode(newText);
+
+  createdElement.appendChild(text);
+  parentDiv.appendChild(createdElement); 
+}
+
+function newImage(parent, imgSrc, imgContainer){
+  var img = new Image();
+  img.src = imgSrc; 
+  var parentDiv = document.getElementById(parent);
+  var imgDiv = document.createElement(imgContainer);
+
+  imgDiv.appendChild(img);
+  parentDiv.appendChild(imgDiv);
+}
+
+function createGallery(columnNumber, flickrPath){
   var hero = document.getElementById('hero');
   var placeholder = document.createElement('img');
   placeholder.src = '../images/holder.png';
   var imageContainer = document.createElement('div');
   imageContainer.appendChild(placeholder);
-  var hero = document.getElementById('hero');
   hero.appendChild(imageContainer );
+
+
   imageContainer.setAttribute('class', 'col-sm-' + columnNumber + ' col-xs-4');
   placeholder.setAttribute('class', 'img-responsive'); 
   placeholder.style.backgroundImage  = "url('"+ flickrPath + "')";
 }
+
+
 
 function getFlickr(){   
   var location = document.getElementById('park').value;  
@@ -47,13 +69,14 @@ function getFlickr(){
           if (blockPicture == 24094142076 || blockPicture == 23930922865){
             console.log(blockPicture + " This image has been blocked");
             for(j = 0; j < 1; j++) {
-              var flickrImage  = 'https://farm' + data[i*10].farm + '.staticflickr.com/' + data[i*10].server + '/' + data[i*10].id + '_' + data[i*10].secret + '_c.jpg';         
-              createImage(3, flickrImage);
+              var flickrImage  = 'https://farm' + data[i*10].farm + '.staticflickr.com/' + data[i*10].server + '/' + data[i*10].id + '_' + data[i*10].secret + '_n.jpg';         
+              createGallery(3, flickrImage);
             }
           }
           else{
-            var flickrImage  = 'https://farm' + data[i*20].farm + '.staticflickr.com/' + data[i*20].server + '/' + data[i*20].id + '_' + data[i*20].secret + '_c.jpg';         
-            createImage(3, flickrImage);
+            console.log(blockPicture);
+            var flickrImage  = 'https://farm' + data[i*20].farm + '.staticflickr.com/' + data[i*20].server + '/' + data[i*20].id + '_' + data[i*20].secret + '_n.jpg';         
+            createGallery(3, flickrImage);
           }
         }
       }
@@ -71,25 +94,25 @@ function getFlickr(){
             if (data.length >= 24) {
               for(j = 0; j < 12; j++) {             
                 var flickrImage  = 'https://farm' + data[j*2].farm + '.staticflickr.com/' + data[j*2].server + '/' + data[j*2].id + '_' + data[j*2].secret + '_c.jpg';       
-                createImage(3, flickrImage);
+                createGallery(3, flickrImage);
               }
             }   
             else if (data.length === 12){
               for(j = 0; j < 12; j++) {
                 var flickrImage  = 'https://farm' + data[j].farm + '.staticflickr.com/' + data[j].server + '/' + data[j].id + '_' + data[j].secret + '_c.jpg';         
-                createImage(3, flickrImage);
+                createGallery(3, flickrImage);
               }
             }
             else if (data.length <= 11 && data.length >= 6){
               for(j = 0; j < 6; j++) {
                 var flickrImage  = 'https://farm' + data[j].farm + '.staticflickr.com/' + data[j].server + '/' + data[j].id + '_' + data[j].secret + '_c.jpg';         
-                createImage(4, flickrImage);
+                createGallery(4, flickrImage);
               }
             }
             else {
               for (j = 0; j < data.length; j++) {
                 var flickrImage  = 'https://farm' + data[j].farm + '.staticflickr.com/' + data[j].server + '/' + data[j].id + '_' + data[j].secret + '_c.jpg';         
-                createImage((12/data.length), flickrImage);
+                createGallery((12/data.length), flickrImage);
               }
             }
           }
@@ -135,22 +158,15 @@ function getRecreation(){
           infoContainer.removeChild(firstChild);
           var firstChild = infoContainer.firstChild;
         }
-
-        var park = document.getElementById('park-info');
-        var noHeader = document.createTextNode('We\'re Sorry');
-        var headerContainer = document.createElement('h3');
-        var noData = document.createTextNode('Facility data is unavailable for this location.');
-        var messageContainer = document.createElement('p');
-        headerContainer.appendChild(noHeader);
-        messageContainer.appendChild(noData);
-        park.appendChild(headerContainer);
-        park.appendChild(messageContainer); 
+        appendElement('park-info', 'h3', 'We\'re Sorry');
+        appendElement('park-info', 'p', 'Facility data is unavailable for this location.');
       }
     }
   }
 }
 
 function getWeather() {
+  var parkName = index.options[index.selectedIndex].text;
   var location = document.getElementById('park').value;  
   var latLong = location.split(',');
   var latitude = latLong[0];
@@ -159,7 +175,7 @@ function getWeather() {
   var xhr = new XMLHttpRequest();
   xhr.open('GET', '/api/weatherCity/getCity?latitude=' + latitude +'&longtitude=' + longtitude, true);
   xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-  xhr.send();
+  //xhr.send();
 
   xhr.onload = function() {
     if(xhr.status === 200) {
@@ -175,38 +191,20 @@ function getWeather() {
       var response = xhr.responseText;
       var responseText = JSON.parse(response);
       var data = responseText.simpleforecast.forecastday;
- 
+
+      appendElement('weather-pod', 'h4', 'Weather near ' + parkName + ' National Park');
+
       for(i = 0; i < data.length; i++) {
-        var weather = document.getElementById('weather-pod');
-        var highPar = document.createElement('p');
-        var lowPar = document.createElement('p');
-        var highTemp = document.createTextNode('High: ' + data[i].high.fahrenheit + '\xB0F');
-        var lowTemp = document.createTextNode('Low: ' + data[i].low.fahrenheit + '\xB0F');
-
-        var dayPar = document.createElement('p');
-        var dayText = document.createTextNode(data[i].date.weekday + ': ' + data[i].conditions);
-        dayPar.appendChild(dayText);
-        weather.appendChild(dayPar); 
-
-        var weatherImg = document.createElement('img');
-        weatherImg.src= data[i].icon_url; 
-        var iconWeather = document.createElement('div');
-        iconWeather.appendChild(weatherImg);
-        weather.appendChild(weatherImg);
-
-        highPar.appendChild(highTemp);
-        lowPar.appendChild(lowTemp);
-        weather.appendChild(highPar);
-        weather.appendChild(lowPar);
-
-        highPar.setAttribute('class', 'temp high');
-        lowPar.setAttribute('class', 'temp low');
+        appendElement('weather-pod', 'h5', data[i].date.weekday + ': ' + data[i].conditions);
+        newImage('weather-pod', data[i].icon_url, 'div');
+        appendElement('weather-pod', 'p', 'High: ' + data[i].high.fahrenheit + '\xB0F');
+        appendElement('weather-pod', 'p', 'Low: ' + data[i].low.fahrenheit + '\xB0F');
       }
     }
   }
 }
 
-function initialize() {
+function getMap() {
   var parkName = index.options[index.selectedIndex].text;
   var location = document.getElementById('park').value;  
   var latLong = location.split(',');
@@ -234,7 +232,7 @@ function getInfo() {
   getRecreation();
   getWeather();
   document.getElementById('map-container').setAttribute('class', 'show');
-  initialize();
+  getMap();
 }
 
 submit.addEventListener('submit', getInfo, false);
