@@ -26,7 +26,7 @@
                     <form id="location">
                         <div class="form-container pull-right">
                             <select class="form-control col-sm-10 col-xs-10" name="NationalPark" id="park">
-                                <option value="44.454,-68.04902">Acadia National Park</option>
+                                <option value="44.454,-68.04902">Acadia </option>
                                 <option value="-14.25708,-170.68512">American Samoa</option>
                                 <option value="38.77,-109.56462">Arches</option>
                                 <option value="43.6504,-102.43392">Badlands</option>
@@ -93,30 +93,14 @@
             </div>
         </div>
         <div class="fluid-container"> 
-            <div class="col-sm-12" div id="hero">
+            <div class="col-sm-12" id="hero">
                 <p class="small-header">US National Parks</p>
                 <p>Let's Camp</p>
              </div>
         </div>
     </div>
     <div class="container hide" id="content">
-        <div class="col-sm-9" id="park-info" style="min-height:500px;">
-            <div class="overview hide">
-                <h1>Overview</h1>
-            </div>
-            <div class="naturalFeatures hide">
-                <h2>Natural Features</h2>
-            </div>
-            <div class="recreation hide">
-                <h2>Recreation</h2>
-            </div>
-            <div class="facilities hide">
-                <h2>Facilities</h2>
-            </div>
-            <div class="nearby hide">
-                <h2>Nearby Attractions</h2>
-            </div>
-        </div> 
+        <div class="col-sm-9" id="park-info"></div> 
         <div class="col-sm-3 hide" id="weather">
             <div class="well" id="weather-pod"></div>
         </div>
@@ -132,7 +116,7 @@
       </div>
     </div>
     <script src="/js/app.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhLpc2dNyA9uEyb6FqexnpMwjZtEz8Brs&callback=initialize">
-    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhLpc2dNyA9uEyb6FqexnpMwjZtEz8Brs&callback=getMap">
+    </script> 
   </body>
 </html>
