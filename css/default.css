@@ -1,7 +1,7 @@
-
 body {
   font-family: Arial, sans-serif;
 }
+
 h1, .h1,
 h2, .h2,
 h3, .h3,
@@ -156,7 +156,7 @@ a:hover {
 
 #weather img {
   float: left;
-  margin-top: -11px;
+  margin-top: -7px;
   margin-right: 20px;
 }
 
@@ -164,16 +164,25 @@ a:hover {
   margin-top: 30px;
   padding: 20px 20px;
 }
-
-#weather-pod .temp{
-  font-size: 10px;
-  padding-top: 0px;
-  margin-bottom: 0;
+@media (max-width: 992px) and (min-width: 768px) {
+  #weather-pod {
+    padding: 0 9px 10px;
+  }
 }
 
-#weather-pod .temp.low{
-  margin-bottom: 20px;
-  padding-top: 0;
+#weather-pod h4 {
+  text-align: center;
+}
+
+#weather-pod h5 {
+  clear: both;
+  padding-top: 11px;
+}
+
+#weather-pod p{
+  font-size: 10px;
+  padding-top: 3px;
+  margin-bottom: 0;
 }
 
 #map {
