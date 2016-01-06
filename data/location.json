@@ -2,7 +2,7 @@
   "orgID":128,
   "locations": [
     {
-      "name": "Acadia National Park",
+      "name": "Acadia",
       "pos": [44.454, -68.04902],
       "state": "Maine",
       "RecAreaFacility":[
@@ -534,8 +534,8 @@
       "pos": [32.2432, -111.13052],
       "state": "Arizona",
       "RecAreaFacility":[
-        {"RecAreaID":2917,"FacilityID":251562},
-        {"RecAreaID":2917,"FacilityID":251563}
+        {"RecAreaID":2917,"FacilityID":251563},
+        {"RecAreaID":2917,"FacilityID":251562}
       ]
     },
     {    

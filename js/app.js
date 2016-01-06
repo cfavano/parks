@@ -74,7 +74,6 @@ function getFlickr(){
             }
           }
           else{
-            console.log(blockPicture);
             var flickrImage  = 'https://farm' + data[i*20].farm + '.staticflickr.com/' + data[i*20].server + '/' + data[i*20].id + '_' + data[i*20].secret + '_n.jpg';         
             createGallery(3, flickrImage);
           }
@@ -148,6 +147,10 @@ function getRecreation(){
             var facilityData = facilityDescription.responseText;
             var park = document.getElementById('park-info');
             park.innerHTML = facilityData;  
+            if (park.childNodes.length === 0){
+              appendElement('park-info', 'h3', 'We\'re Sorry');
+              appendElement('park-info', 'p', 'Facility data is unavailable for this location.');
+            }
           }
         }
       }
