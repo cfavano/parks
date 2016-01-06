@@ -22,10 +22,7 @@ app.use('/api', api);
 
 api.use('/flickrImagesBroad', flickrImagesBroad);
 api.use('/flickrImages', flickr);
-
-api.use('/recInfo', recInfo);
 api.use('/facilityData', facilityDataRouter);
-
 api.use('/weatherCity', weatherCity);
 
 app.listen(1337);
