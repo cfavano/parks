@@ -8,12 +8,14 @@ weatherCity.get('/getCity', function(request,response){
   var latitude = queryString.latitude;
   var longtitude = queryString.longtitude;
  
-  requestModule('http://api.wunderground.com/api/35dd1f209fa4a7ab/geolookup/q/' + latitude +',' + longtitude +'.json', function(error, res, body){
+  requestModule('http://api.wunderground.com/api/35dd1f209fa4a7ab/geolookup/q/' + latitude +',' + longtitude +'.json', 
+    function(error, res, body){
     if (!error && res.statusCode === 200) {
       var data = JSON.parse(body);
       var city = data.location.city;
       var state = data.location.state;
-      requestModule('http://api.wunderground.com/api/35dd1f209fa4a7ab/forecast/q/'+ state + '/' + city + '.json', function(error, res, body){
+      requestModule('http://api.wunderground.com/api/35dd1f209fa4a7ab/forecast/q/'+ state + '/' + city + '.json', 
+        function(error, res, body){
         if (!error && res.statusCode === 200) {
           var data = JSON.parse(body);
           response.send(data.forecast);
