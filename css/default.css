@@ -132,15 +132,14 @@ a:hover {
   font-size: 40px;
 }
 
-.fluid-container #hero .col-sm-3, 
-.fluid-container #hero .col-sm-4,
-.fluid-container #hero .col-sm-6 {
+.fluid-container #hero > .col-md-12,
+.fluid-container #hero.col-sm-12 > div,
+.fluid-container #hero > .col-md-12 > div,
+.fluid-container #hero > .col-md-12 > div > div {
   padding: 0;
 }
 
-.fluid-container #hero .col-sm-3 .img-responsive,
-.fluid-container #hero .col-sm-4 .img-responsive,
-.fluid-container #hero .col-sm-6 .img-responsive {
+.fluid-container #hero .col-md-12 > div > div > img{
   background-size: cover;
   background-position: center center;
 }
