@@ -30,6 +30,45 @@ function createGallery(flickrPath) {
   placeholder.style.backgroundImage  = "url('"+ flickrPath + "')";
 }
 
+function galleryClass(){
+  var hero = document.getElementById('hero');
+  var imageContainer = hero.getElementsByTagName('div'); 
+  
+  var row1 = document.createElement('div');
+  var container1 = document.createElement('div');
+  var container2 = document.createElement('div');
+  var container3 = document.createElement('div');
+  row1.appendChild(container1);
+  row1.appendChild(container2);
+  row1.appendChild(container3);
+  
+  hero.appendChild(row1);
+  row1.setAttribute('class', 'col-md-12');
+  container1.setAttribute('class', 'col-md-3 col-sm-6 col-xs-3');
+  container2.setAttribute('class', 'col-md-3 col-sm-6 col-xs-3');
+  container3.setAttribute('class', 'col-md-6 col-sm-3 col-xs-6');
+
+  container1.appendChild(imageContainer[7]);
+  container1.appendChild(imageContainer[6]);
+  container2.appendChild(imageContainer[5]);
+  container2.appendChild(imageContainer[4]);
+  container3.appendChild(imageContainer[3]); 
+ 
+  var row2 = document.createElement('div');
+  var container4 = document.createElement('div');
+  row2.appendChild(container4);
+  row2.setAttribute('class', 'col-md-12');
+  hero.appendChild(row2);
+  
+  var cont6 = container4.appendChild(imageContainer[2]);
+  var cont5 = container4.appendChild(imageContainer[1]);
+  var cont4 = container4.appendChild(imageContainer[0]);
+
+  cont6.setAttribute('class', 'col-md-4 col-sm-3 col-xs-4');
+  cont5.setAttribute('class', 'col-md-4 col-sm-3 col-xs-4');
+  cont4.setAttribute('class', 'col-md-4 col-sm-3 col-xs-4');
+}
+
 function removeData(containerId) {
   var container = document.getElementById(containerId);
   var firstChild = container.firstChild;
@@ -57,43 +96,7 @@ function getFlickr() {
       var responseText = JSON.parse(response);
       var data = responseText.photos.photo; 
 
-      function galleryClass(){
-        var hero = document.getElementById('hero');
-        var imageContainer = hero.getElementsByTagName('div'); 
-        
-        var row1 = document.createElement('div');
-        var container1 = document.createElement('div');
-        var container2 = document.createElement('div');
-        var container3 = document.createElement('div');
-        row1.appendChild(container1);
-        row1.appendChild(container2);
-        row1.appendChild(container3);
-        hero.appendChild(row1);
-        row1.setAttribute('class', 'col-md-12');
-        container1.setAttribute('class', 'col-md-3 col-sm-6 col-xs-3');
-        container2.setAttribute('class', 'col-md-3 col-sm-6 col-xs-3');
-        container3.setAttribute('class', 'col-md-6 col-sm-3 col-xs-6');
-
-        container1.appendChild(imageContainer[7]);
-        container1.appendChild(imageContainer[6]);
-        container2.appendChild(imageContainer[5]);
-        container2.appendChild(imageContainer[4]);
-        container3.appendChild(imageContainer[3]); 
-       
-        var row2 = document.createElement('div');
-        var container4 = document.createElement('div');
-        row2.appendChild(container4);
-        row2.setAttribute('class', 'col-md-12');
-        hero.appendChild(row2);
-        
-        var cont6 = container4.appendChild(imageContainer[2]);
-        var cont5 = container4.appendChild(imageContainer[1]);
-        var cont4 = container4.appendChild(imageContainer[0]);
-
-        cont6.setAttribute('class', 'col-md-4 col-sm-3 col-xs-4');
-        cont5.setAttribute('class', 'col-md-4 col-sm-3 col-xs-4');
-        cont4.setAttribute('class', 'col-md-4 col-sm-3 col-xs-4');
-      }
+    
       
       if(data.length >= 240) {
         for(i = 0; i < 8; i++) {
