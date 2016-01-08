@@ -75,6 +75,46 @@ a:hover {
   background: rgba(0,0,0,.75);
 }
 
+@media (max-width: 579px) {
+  .navigation-container .col-xs-3.col-sm-6, 
+  .navigation-container .col-xs-9.col-sm-6{
+    padding: 0;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 589px) {
+  .navigation-container .col-xs-3.col-sm-6, 
+  .navigation-container .col-xs-9.col-sm-6{
+    padding: 0;
+  }
+}
+
+@media (max-width: 479px) {
+  .navigation-container {
+    padding-bottom: 15px;
+    position: static;
+    background: black;
+  }
+
+  .navigation-container .col-xs-3.col-sm-6, 
+  .navigation-container .col-xs-9.col-sm-6{
+    clear: both;
+    padding: 0;
+    width: 100%;
+  }
+
+  .fluid-container #hero p.small-header {
+    padding: 25% 0 0;
+  }
+
+  .form-container.pull-right {
+    float: none!important;
+  }
+
+  .navigation-container #location .form-control.col-sm-10.col-xs-10 {
+    margin: 0;
+  }
+}
 .navigation-container .logo {
   margin-top: 17px;
 }
@@ -100,32 +140,45 @@ a:hover {
   }
 }
 
+@media (max-width: 479px) {
+  .navigation-container #location .btn {
+    margin: 0px 0 0 5px;
+  }
+}
+
 @media (max-width: 362px) {
   .navigation-container {
-    background: transparent;
+    padding-bottom: 0; 
   }
+
+  .navigation-container #location .form-control.col-sm-10.col-xs-10 {
+    margin: 0 0 10px 0;
+  }
+
   .navigation-container #location .btn {
-    margin: 16px auto 10px;
+    margin: 0 auto 10px;
     padding: 6px 16px;
     border-radius: 20px;
     width: 50px;
     display: block;
     float: none!important;
   }
+
   .navigation-container #location .form-control {
     width: 100%;
   }
+
   .navigation-container .logo {
-    margin: 17px auto 0;
+    margin: 17px auto 10px;
   }
 }
+
 .fluid-container #hero {
   padding: 0;
 }
 
 .fluid-container #hero p {
   margin: 0 auto;
- 
   max-width: 637px;
   width:100%;
   text-align: center;
@@ -139,7 +192,12 @@ a:hover {
   padding: 15% 0 0;
   font-size: 40px;
 }
-
+@media (max-width: 380px){
+  .fluid-container #hero p {
+    font-size: 63px;
+    line-height: 1.2;
+  }
+}
 .fluid-container #hero > .col-md-12,
 .fluid-container #hero.col-sm-12 > div,
 .fluid-container #hero > .col-md-12 > div,

@@ -95,8 +95,6 @@ function getFlickr() {
       var response = xhr.responseText;
       var responseText = JSON.parse(response);
       var data = responseText.photos.photo; 
-
-    
       
       if(data.length >= 240) {
         for(i = 0; i < 8; i++) {
@@ -150,7 +148,6 @@ function getFlickr() {
                 var images = hero.getElementsByTagName('div'); 
                 images[j].setAttribute('class', 'col-sm-6'); 
               }                
-
             }
           }
         }
@@ -244,12 +241,14 @@ function getMap() {
   marker.setMap(map);
 
   var infoWindow = new google.maps.InfoWindow({map: map});
+
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
       var pos = {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
+
       infoWindow.setPosition(pos);
       infoWindow.setContent('You are here');
     });

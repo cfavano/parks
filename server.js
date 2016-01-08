@@ -2,7 +2,6 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var flickr = require('./js/flickrApi.js');
-var recInfo = require('./js/recInfo.js')
 var facilityDataRouter = require('./js/facilityData.js');
 var flickrImagesBroad = require('./js/flickrImagesBroad.js');
 var weatherCity = require('./js/weatherCity.js');
