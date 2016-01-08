@@ -41,7 +41,7 @@ function galleryClass(){
   row1.appendChild(container1);
   row1.appendChild(container2);
   row1.appendChild(container3);
-  
+
   hero.appendChild(row1);
   row1.setAttribute('class', 'col-md-12');
   container1.setAttribute('class', 'col-md-3 col-sm-6 col-xs-3');
@@ -225,22 +225,38 @@ function getWeather() {
 
 function getMap() {
   var parkName = index.options[index.selectedIndex].text;
-  var location = document.getElementById('park').value;  
-  var latLong = location.split(',');
-  var latitude = parseFloat(latLong[0]).toFixed(5);
-  var longtitude = parseFloat(latLong[1]).toFixed(5);
+  var parkLocation = document.getElementById('park').value;  
+  var parkCoordinates = parkLocation.split(',');
+  var parkLatitude = parseFloat(parkCoordinates[0]).toFixed(5);
+  var parkLongtitude = parseFloat(parkCoordinates[1]).toFixed(5);
   var mapCanvas = document.getElementById('map');
+
   var mapOptions = {
-    center: new google.maps.LatLng(latitude, longtitude),
-    zoom: 5,
+    center: new google.maps.LatLng(39.0708, -87.2600), //Dugger, Indiana coordinates to center map on US
+    zoom: 4,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
   var map = new google.maps.Map(mapCanvas, mapOptions);
   var marker = new google.maps.Marker({
-    position: new google.maps.LatLng(latitude, longtitude),
+    position: new google.maps.LatLng(parkLatitude, parkLongtitude),
     title: parkName
   });
   marker.setMap(map);
+
+  var infoWindow = new google.maps.InfoWindow({map: map});
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+      infoWindow.setPosition(pos);
+      infoWindow.setContent('You are here');
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    handleLocationError(false, infoWindow, map.getCenter());
+  }
 }
 
 function getInfo() {  
