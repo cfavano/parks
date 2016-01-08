@@ -15,7 +15,6 @@ facilityDataRouter.get('/getFacilityByName', function (request, response) {
 
 facilityDataRouter.get('/getRecreationInfoById', function (request, response) {
   var facilityData = url.parse(request.url, true).query;
-  console.log(facilityData);
   var facilityId = facilityData.facilityId;
   requestModule('https://ridb.recreation.gov/api/v1/organizations/128/facilities/' + facilityId + '?apikey=89C4376BC2E24ABF904C029D21BE5FBB', 
   function (error, res, body) {
