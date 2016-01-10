@@ -156,7 +156,40 @@ function getFlickr() {
   }
 }
 
-function getRecreation() { 
+function getPark() {
+  var parkName = index.options[index.selectedIndex].text;
+  document.getElementById('park-content').setAttribute('class', 'fluid-container show');
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', '/api/recreationData/getParkByName?parkName=' + parkName, true);
+  xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+  xhr.send(); 
+  xhr.onload = function() {
+    if(xhr.status === 200) {
+      var response = xhr.responseText;
+      var responseText = JSON.parse(response);
+      var parkID = JSON.stringify(responseText.ID);
+      if (parkID != "") {
+        var parkDescription = new XMLHttpRequest();
+        parkDescription.open('GET', '/api/recreationData/getParkInfoById?recreationId=' + parkID, true);
+        parkDescription.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+        parkDescription.send();
+        parkDescription.onload = function() {
+          if (parkDescription.status === 200) {  
+            var returnedData = parkDescription.responseText;
+            var parkInfo = JSON.parse(returnedData);
+            var park = document.getElementById('recreation-info');
+            console.log(parkInfo);
+            removeData('recreation-info');
+            appendElement('recreation-info', 'h1', parkInfo.RecAreaName);
+            appendElement('recreation-info', 'p', parkInfo.RecAreaDescription);
+          }
+        }
+      }
+    }
+  }
+}
+
+function getFacility() { 
   var parkName = index.options[index.selectedIndex].text;
   document.getElementById('content').setAttribute('class', 'container show');
   var xhr = new XMLHttpRequest();
@@ -168,6 +201,7 @@ function getRecreation() {
       var response = xhr.responseText;
       var responseText = JSON.parse(response);
       var facilityId = JSON.stringify(responseText.ID);
+
       if (responseText.ID != "") {
         var facilityDescription = new XMLHttpRequest();
         facilityDescription.open('GET', '/api/facilityData/getRecreationInfoById?facilityId=' + facilityId, true);
@@ -176,8 +210,10 @@ function getRecreation() {
         facilityDescription.onload = function() {
           if (facilityDescription.status === 200) {  
             var facilityData = facilityDescription.responseText;
+            var facilityInfo = JSON.parse(facilityData);
             var park = document.getElementById('park-info');
-            park.innerHTML = facilityData;  
+            appendElement('facility-name', 'h2', facilityInfo.FacilityName); 
+            park.innerHTML = facilityInfo.FacilityDescription;  
             if (park.childNodes.length === 0){
               appendElement('park-info', 'h3', 'We\'re Sorry');
               appendElement('park-info', 'p', 'Facility data is unavailable for this location.');
@@ -186,7 +222,8 @@ function getRecreation() {
         }
       }
       else {
-        removeData('park-info');
+        removeData('facility-name');
+        removeData('park-info');        
         appendElement('park-info', 'h3', 'We\'re Sorry');
         appendElement('park-info', 'p', 'Facility data is unavailable for this location.');
       }
@@ -261,7 +298,8 @@ function getMap() {
 function getInfo() {  
   event.preventDefault();
   getFlickr();
-  getRecreation();
+  getPark();
+  getFacility();
   getWeather();
   document.getElementById('map-container').setAttribute('class', 'show');
   getMap();

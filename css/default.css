@@ -210,6 +210,18 @@ a:hover {
   background-position: center center;
 }
 
+#recreation-info {
+  padding-bottom: 20px;
+  background: #5cb85c;
+  color: #fff;
+}
+
+#recreation-info p {
+  max-width: 1100px;
+  margin: 0 auto;
+  color: #fff;
+}
+
 #footer {
   padding: 15px 0 5px;
   color:#fff;

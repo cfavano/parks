@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var flickr = require('./js/flickrApi.js');
+var recreationDataRouter = require('./js/recreationData.js');
 var facilityDataRouter = require('./js/facilityData.js');
 var flickrImagesBroad = require('./js/flickrImagesBroad.js');
 var weatherCity = require('./js/weatherCity.js');
@@ -22,6 +23,7 @@ app.use('/api', api);
 api.use('/flickrImagesBroad', flickrImagesBroad);
 api.use('/flickrImages', flickr);
 api.use('/facilityData', facilityDataRouter);
+api.use('/recreationData', recreationDataRouter);
 api.use('/weatherCity', weatherCity);
 
 app.listen(1337);

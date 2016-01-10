@@ -20,7 +20,7 @@ facilityDataRouter.get('/getRecreationInfoById', function (request, response) {
   function (error, res, body) {
     if (!error && res.statusCode === 200) {
       var facilityInfo = JSON.parse(body);     
-      response.send(facilityInfo.FacilityDescription); 
+      response.send(facilityInfo); 
     }
   });
 });
