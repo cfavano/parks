@@ -20,7 +20,6 @@ recreationDataRouter.get('/getParkInfoById', function (request, response) {
   function (error, res, body) {
     if (!error && res.statusCode === 200) {
       var parkInfo = JSON.parse(body);
-      console.log(parkInfo);     
       response.send(parkInfo); 
     }
   });
