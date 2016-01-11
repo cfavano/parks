@@ -239,7 +239,7 @@ function getWeather() {
   var xhr = new XMLHttpRequest();
   xhr.open('GET', '/api/weatherCity/getCity?latitude=' + latLong[0] +'&longtitude=' + latLong[1], true);
   xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-  xhr.send();
+  //xhr.send();
   xhr.onload = function() {
     if(xhr.status === 200) {
       document.getElementById('weather').setAttribute('class', 'col-sm-3 show');   
