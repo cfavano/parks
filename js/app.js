@@ -179,6 +179,7 @@ function getPark() {
             var parkInfo = JSON.parse(returnedData);
             var park = document.getElementById('recreation-info');
             console.log(parkInfo);
+            removeData('facility-name');
             removeData('recreation-info');
             appendElement('recreation-info', 'h1', parkInfo.RecAreaName);
             appendElement('recreation-info', 'p', parkInfo.RecAreaDescription);
